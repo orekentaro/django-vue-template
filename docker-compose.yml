@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: drf_pass
     ports:
       - "5432:5432"
-
+      - "5678:5678"
   backend:
     build:
       context: .

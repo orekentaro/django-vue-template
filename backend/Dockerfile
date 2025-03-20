@@ -20,3 +20,7 @@ RUN poetry install --no-root
 
 # 3. プロジェクト全体をコピー
 COPY ./backend /app/
+
+ENV DEBUG_MODE=true
+
+CMD ["scripts/wait_for_it.sh", "db:5432", "--", "python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "manage.py", "runserver", "0.0.0.0:8080"]
